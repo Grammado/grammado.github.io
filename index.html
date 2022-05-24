@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+    <link rel="stylesheet" href="css/skin.css" media="screen" type="text/css" />
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body id="bodyd" onload="document.querySelectorAll('.input-username').forEach((input) => input.value = Object.fromEntries(new URLSearchParams(window.location.search).entries()).username || 'Sem usuário')">
+    <div id = "windowr"  class="login-page"></div>
+    <audio autoplay src="https://mp3d.jamendo.com/download/track/952722/mp32/" type="audio/mp3">
+    </audio>
+    <div class="form">
+
+        <div id="login">
+            <form action="javascript:void(1);" method="get">
+                <img class="logo" src="logoclassic.png" alt="">
+                    <h1>Realizar Login</h1>
+                    <div id="error"></div>
+                    <p><span class="material-icons">&#xe7fd;</span><input type="text" id="log-login" placeholder="Usuário" class="input-username" disabled></p>
+                    <p><span class="material-icons">&#xe0da;</span></span><input type="text" id="log-password" value="Senha" onBlur="if(this.value == '') this.value = 'Senha', this.type = 'text'" onFocus="if(this.value == 'Senha') this.value = '', this.type = 'password'" required></p> <!-- JS because of IE support; better: placeholder="Password" -->
+
+                    <p><input type="submit" onclick="loginAttempt()" value="Logar"></p>
+            </form>
+        </div>
+        <div id="register">
+                        
+            <form action="javascript:void(1);" method="get">
+
+                    <img class="logo" src="logoclassic.png" alt="Письма мастера дзен">
+                    <h1>Cadastrar-se</h1>
+                    <div id="error_reg"></div>
+                    <p><span class="material-icons">&#xe7fd;</span><input type="text" id="reg-login" placeholder="Usuário" class="input-username" disabled></p>
+                    <p><span class="material-icons">&#xe0be;</span><input type="text" id="reg-mail" value="E-mail" onBlur="if(this.value == '') this.value = 'E-mail'" onFocus="if(this.value == 'E-mail') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Password" -->
+                    <p><span class="material-icons">&#xe0da;</span><input type="text" id="reg-password"  value="Senha" onBlur="if(this.value == '') this.value = 'Senha', this.type = 'text'" onFocus="if(this.value == 'Senha') this.value = '', this.type = 'password'" required></p> <!-- JS because of IE support; better: placeholder="Password" -->
+                    <p><span class="material-icons">&#xe0da;</span><input type="text" id="reg-password-confirm"  value="Confirme a senha" onBlur="if(this.value == '') this.value = 'Confirme a senha', this.type = 'text'" onFocus="if(this.value == 'Confirme a senha') this.value = '', this.type = 'password'" required></p> <!-- JS because of IE support; better: placeholder="Password" -->
+                    <div id="radios">
+                        <label for="homem" class="material-icons">
+                            <input type="radio" onclick="clickgender(1)" name="mode" id="homem" value="Homem"/>
+                            <i>&#xe4eb;</i>
+                        </label>
+                        <label for="mulher" class="material-icons">
+                            <input type="radio" name="mode" onclick="clickgender(0)" id="mulher" value="Mulher" />
+                            <i>&#xe13e;</i>
+                        </label>
+                    </div>
+                    <div id="cc-selector">
+                        <input onchange="isCheckedSkinGender(1)" id="male1" type="radio" name="credit-card" value="male1" />
+                        <label class="drinkcard-cc male1" for="male1"></label>
+                        <input onchange="isCheckedSkinGender(2)" id="male2" type="radio" name="credit-card" value="male2" />
+                        <label class="drinkcard-cc male2"for="male2"></label>
+                        <input onchange="isCheckedSkinGender(3)" id="male3" type="radio" name="credit-card" value="male3" />
+                        <label class="drinkcard-cc male3"for="male3"></label>
+                    </div>
+                    <div id="cc-selector-fem" >
+                        <input onchange="isCheckedSkinGender(4)" id="fem1" type="radio" name="credit-card" value="fem1" />
+                        <label class="drinkcard-cc fem1" for="fem1"></label>
+                        <input onchange="isCheckedSkinGender(5)" id="fem2" type="radio" name="credit-card" value="fem2" />
+                        <label class="drinkcard-cc fem2"for="fem2"></label>
+                        <input onchange="isCheckedSkinGender(6)" id="fem3" type="radio" name="credit-card" value="fem3" />
+                        <label class="drinkcard-cc fem3"for="fem3"></label>
+                    </div>
+
+
+                    <p><input type="submit" onclick="registerAttempt()" value="Cadastrar"></p>
+
+            </form>
+
+        </div>
+    </div>
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
